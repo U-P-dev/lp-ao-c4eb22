@@ -328,20 +328,38 @@
 <link rel="canonical" href="./">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "AO& アオト", "address": {"@type": "PostalAddress", "streetAddress": "日本、〒167-0051 東京都杉並区荻窪４丁目２０−１ 102"}, "telephone": "03-4400-7163"}</script>
 <style>
-.vbar{position:relative;z-index:10000;background:#1c1c1c;color:#fff;
-  padding:12px 0;font-size:13px;line-height:1.7;font-family:sans-serif}
-.vbar .wrap{max-width:1080px;margin:0 auto;padding:0 20px;
-  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
-.vbar__note{opacity:.75;flex:1 1 260px;min-width:0}
-.vbar__list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.vbar__link{display:inline-block;color:#fff;text-decoration:none;
-  padding:6px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
-.vbar__link[aria-current]{background:#fff;color:#1c1c1c;font-weight:700;box-shadow:none}
+nav.vbar{position:relative !important;z-index:10000 !important;display:block !important;
+  background:#1c1c1c !important;color:#fff !important;margin:0 !important;
+  padding:12px 0 !important;font-size:13px !important;line-height:1.7 !important;
+  font-family:sans-serif !important;max-width:none !important;
+  opacity:1 !important;visibility:visible !important;transform:none !important}
+nav.vbar .vbar__inner{max-width:1080px !important;margin:0 auto !important;
+  padding:0 20px !important;display:flex !important;flex-wrap:wrap !important;
+  gap:10px 18px !important;align-items:center !important;width:auto !important}
+nav.vbar .vbar__note{opacity:.75 !important;flex:1 1 260px !important;
+  min-width:0 !important;color:#fff !important}
+nav.vbar .vbar__list{display:flex !important;flex-wrap:wrap !important;gap:8px !important;
+  list-style:none !important;margin:0 !important;padding:0 !important}
+nav.vbar .vbar__list li{display:block !important;margin:0 !important;padding:0 !important;
+  list-style:none !important;width:auto !important}
+nav.vbar .vbar__link{display:inline-block !important;color:#fff !important;
+  text-decoration:none !important;padding:6px 14px !important;font-size:13px !important;
+  border-radius:999px !important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4) !important;
+  background:transparent !important;opacity:1 !important;visibility:visible !important;
+  transform:none !important;letter-spacing:normal !important}
+nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !important;
+  font-weight:700 !important;box-shadow:none !important}
+@media (max-width:520px){
+  nav.vbar{padding:8px 0 !important;font-size:12px !important;line-height:1.5 !important}
+  nav.vbar .vbar__inner{padding:0 14px !important;gap:8px 10px !important}
+  nav.vbar .vbar__link{padding:5px 10px !important;font-size:12px !important}
+}
 #contact{padding:72px 20px}
 #contact .narrow{max-width:560px;margin:0 auto}
 #contact .cta h2{font-size:24px;margin:0 0 12px}
 #contact .cta__body{margin:0 0 24px;line-height:1.9}
 #contact .cta__actions{margin:0 0 28px}
+#contact .hero__actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 #contact .form{display:grid;gap:18px;text-align:left}
 #contact .field{display:grid;gap:8px}
 #contact .field label{font-size:14px;font-weight:700}
@@ -356,6 +374,10 @@
 #contact .ic{flex:none}
 #contact .form__note{font-size:12px;opacity:.7;margin:0}
 #contact .form__done{display:none}
+/* 値の入らなかった任意欄は行ごと畳む（テンプレの「無ければ行ごと削る」の実装。
+   :has() 非対応のブラウザでは従来どおり空欄が残るだけで、悪化はしない） */
+dd:empty{display:none !important}
+div:has(> dd:empty){display:none !important}
 #privacy-policy{padding:56px 20px;font-size:13px;line-height:2}
 #privacy-policy .narrow{max-width:720px;margin:0 auto}
 #privacy-policy h2{font-size:18px;margin:0 0 16px}
@@ -396,7 +418,7 @@
     <div class="cover__meta">
       <p class="issue">
         <span class="issue__label">COLLECTION</span>
-        <span class="issue__no">vol. 01</span>
+        <span class="issue__no">Vol.01</span>
         <span class="issue__sub">2026 SUMMER</span>
       </p>
       <p class="cover__who">
@@ -408,10 +430,10 @@
   
   <div class="statement">
     <h1 class="statement__en">
-      <span class="ln"><span class="np">A calm blue hour</span></span><span class="ln"><span class="np">for your hair.</span></span>
+      <span class="ln"><span class="np">HAIR</span><span class="np">SALON</span></span><span class="ln"><span class="np">OGIKUBO,</span><span class="np">SUGINAMI</span></span>
     </h1>
     <p class="lead fade-up">
-      <span class="np">杉並区荻窪の美容院、</span><span class="np">AO& アオト。</span><span class="np">肩の力を抜いて過ごせる時間と、</span><span class="np">扱いやすい髪を。</span><span class="np">丁寧なカウンセリングから</span><span class="np">はじめます。</span>
+      <span class="np">杉並区荻窪の美容院です。</span><span class="np">カット、カラー、パーマなど、</span><span class="np">いまの髪の状態と</span><span class="np">毎日の手入れのしやすさを</span><span class="np">伺いながら、</span><span class="np">ひとつずつご相談して進めます。</span>
     </p>
   </div>
 
@@ -422,49 +444,49 @@
         <span class="num" aria-hidden="true">01</span>
         <p class="sec__no">No.01</p>
         <h2 class="sec__en">COLLECTION</h2>
-        <p class="sec__jp">AO& アオトのこと</p>
+        <p class="sec__jp">この店について</p>
       </div>
       <div class="rail fade-up" aria-hidden="true">
         <span class="rail__en">COLLECTION</span><span class="rail__line"></span>
       </div>
       <div class="sec__body">
         <p class="lead fade-up">
-          <span class="np">はじめての方にも、</span><span class="np">通い慣れた方にも。</span><span class="np">髪と頭皮の状態を見ながら、</span><span class="np">無理のない提案を</span><span class="np">心がけています。</span>
+          <span class="np">はじめての方も、</span><span class="np">久しぶりの方も。</span><span class="np">スタイル写真を見ながら、</span><span class="np">なりたい形と</span><span class="np">今日の髪の状態をうかがって進めます。</span>
         </p>
         <div class="gallery">
           <figure class="g1">
             <div class="ph wipe"><img src="https://images.unsplash.com/photo-1711274094763-ff442e4719ef?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8OHx8aGFpciUyMHNhbG9uJTIwc3R5bGV8ZW58MXwxfHx8MTc4Njc0MjA2NHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
-              <span>Counseling</span>
-              <span class="jp">対話から始める</span>
+              <span>CUT</span>
+              <span class="jp">カット</span>
             </figcaption>
           </figure>
           <figure class="g2">
             <div class="ph wipe wipe-d1"><img src="https://images.unsplash.com/photo-1763741141049-352dfafcc64f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8NXx8aGFpciUyMHNhbG9uJTIwc3R5bGV8ZW58MXwyfHx8MTc4Njc0MjA2Nnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
-              <span>Care</span>
-              <span class="jp">髪をいたわる</span>
+              <span>COLOR</span>
+              <span class="jp">カラー</span>
             </figcaption>
           </figure>
           <figure class="g3">
             <div class="ph wipe"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8NHx8aGFpciUyMHNhbG9uJTIwc3R5bGV8ZW58MXwwfHx8MTc4Njc0MjA2Mnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
-              <span>Relax</span>
-              <span class="jp">くつろげる時間</span>
+              <span>PERM</span>
+              <span class="jp">パーマ</span>
             </figcaption>
           </figure>
           <figure class="g4">
             <div class="ph wipe"><img src="https://images.unsplash.com/photo-1786379790403-39d89eb459cf?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8Nnx8aGFpciUyMHNhbG9uJTIwc3R5bGV8ZW58MXwyfHx8MTc4Njc0MjA2Nnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
-              <span>Everyday</span>
-              <span class="jp">毎日を扱いやすく</span>
+              <span>CARE</span>
+              <span class="jp">トリートメント</span>
             </figcaption>
           </figure>
           <figure class="g5">
             <div class="ph wipe wipe-d1"><img src="https://images.unsplash.com/photo-1675034741473-afed58a142e8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8OXx8aGFpciUyMHNhbG9uJTIwc3R5bGV8ZW58MXwxfHx8MTc4Njc0MjA2NHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="作品" loading="lazy" decoding="async"></div>
             <figcaption class="cap">
-              <span>Ogikubo</span>
-              <span class="jp">荻窪の街で</span>
+              <span>GALLERY</span>
+              <span class="jp">スタイル写真</span>
             </figcaption>
           </figure>
         </div>
@@ -479,7 +501,7 @@
         <span class="num" aria-hidden="true">02</span>
         <p class="sec__no">No.02</p>
         <h2 class="sec__en">MENU</h2>
-        <p class="sec__jp">メニューのご案内</p>
+        <p class="sec__jp">メニュー</p>
       </div>
       <div class="rail fade-up" aria-hidden="true">
         <span class="rail__en">MENU</span><span class="rail__line"></span>
@@ -488,67 +510,67 @@
         <ul class="menu fade-up">
           <li class="card">
             <div class="card__head">
-              <span class="card__en">Cut</span>
+              <span class="card__en">CUT</span>
               <h3>カット</h3>
             </div>
-            <p><span class="np">骨格や髪質に合わせて、</span><span class="np">扱いやすさまで考えた</span><span class="np">シルエットに</span><span class="np">整えます。</span></p>
+            <p><span class="np">髪のくせと</span><span class="np">生えぐせを見ながら、</span><span class="np">伸びてきたときの形まで</span><span class="np">考えて切ります。</span></p>
             <span class="card__pr">—
-              <span class="card__time">約60分</span>
+              <span class="card__time">要ご相談</span>
             </span>
           </li>
           <li class="card">
             <div class="card__head">
-              <span class="card__en">Color</span>
+              <span class="card__en">COLOR</span>
               <h3>カラー</h3>
             </div>
-            <p><span class="np">肌の色や普段の服装に</span><span class="np">なじむ色味を、</span><span class="np">一緒に選びながら</span><span class="np">染めていきます。</span></p>
+            <p><span class="np">根元の伸びと</span><span class="np">ご希望の色みをうかがって、</span><span class="np">明るさを</span><span class="np">決めていきます。</span></p>
             <span class="card__pr">—
-              <span class="card__time">約90分</span>
+              <span class="card__time">要ご相談</span>
             </span>
           </li>
           <li class="card">
             <div class="card__head">
-              <span class="card__en">Perm</span>
+              <span class="card__en">PERM</span>
               <h3>パーマ</h3>
             </div>
-            <p><span class="np">朝の手入れが楽になる、</span><span class="np">ゆるやかな動きを</span><span class="np">髪に加えます。</span></p>
+            <p><span class="np">髪の状態を確かめたうえで、</span><span class="np">かけ方と強さを</span><span class="np">ご相談します。</span></p>
             <span class="card__pr">—
-              <span class="card__time">約120分</span>
+              <span class="card__time">要ご相談</span>
             </span>
           </li>
           <li class="card">
             <div class="card__head">
-              <span class="card__en">Treatment</span>
+              <span class="card__en">TREATMENT</span>
               <h3>トリートメント</h3>
             </div>
-            <p><span class="np">髪の状態に合わせて補修し、</span><span class="np">手ざわりと</span><span class="np">まとまりを整えます。</span></p>
+            <p><span class="np">手ざわりや</span><span class="np">乾かしやすさのご希望にあわせて、</span><span class="np">内容を選びます。</span></p>
             <span class="card__pr">—
-              <span class="card__time">約45分</span>
+              <span class="card__time">要ご相談</span>
             </span>
           </li>
           <li class="card">
             <div class="card__head">
-              <span class="card__en">Head Spa</span>
-              <h3>ヘッドスパ</h3>
+              <span class="card__en">SHAMPOO</span>
+              <h3>シャンプー・ブロー</h3>
             </div>
-            <p><span class="np">頭皮をやさしくほぐす、</span><span class="np">リラックスの</span><span class="np">ひととき。</span><span class="np">疲れた日にも。</span></p>
+            <p><span class="np">洗って乾かすところまで。</span><span class="np">ご自宅での</span><span class="np">乾かし方も</span><span class="np">あわせてお伝えします。</span></p>
             <span class="card__pr">—
-              <span class="card__time">約30分</span>
+              <span class="card__time">要ご相談</span>
             </span>
           </li>
           <li class="card">
             <div class="card__head">
-              <span class="card__en">Set</span>
+              <span class="card__en">STYLING</span>
               <h3>ヘアセット</h3>
             </div>
-            <p><span class="np">お出かけや式典の日に、</span><span class="np">その日の装いに合わせて</span><span class="np">髪を結い上げます。</span></p>
+            <p><span class="np">お出かけの日にあわせて、</span><span class="np">当日の装いをうかがって</span><span class="np">整えます。</span></p>
             <span class="card__pr">—
-              <span class="card__time">約40分</span>
+              <span class="card__time">要ご相談</span>
             </span>
           </li>
         </ul>
         <p class="menu-note fade-up">
-          <span class="np">料金は髪の長さや施術内容により異なります。</span><span class="np">詳しい料金表は、</span><span class="np">お電話・メールでお気軽にお尋ねください。</span><span class="np">所要時間は目安です。</span><span class="np">当日の混み具合で前後します。</span>
+          <span class="np">メニューごとの料金は、</span><span class="np">店頭とお電話でご案内しています。</span><span class="np">髪の長さや状態によって、</span><span class="np">内容が変わる場合は、</span><span class="np">施術の前にお伝えします。</span>
         </p>
       </div>
     </div>
@@ -561,7 +583,7 @@
         <span class="num" aria-hidden="true">03</span>
         <p class="sec__no">No.03</p>
         <h2 class="sec__en">CONCEPT</h2>
-        <p class="sec__jp">大切にしていること</p>
+        <p class="sec__jp">この店の姿勢</p>
       </div>
       <div class="rail fade-up" aria-hidden="true">
         <span class="rail__en">CONCEPT</span><span class="rail__line"></span>
@@ -570,10 +592,10 @@
         <div class="concept">
           <div class="fade-up">
             <p class="concept__h">
-              <span class="np">髪のことを、</span><span class="np">ゆっくり話せる場所に。</span>
+              <span class="np">急がず、</span><span class="np">髪の都合にあわせて。</span>
             </p>
             <p class="lead lead--wide">
-              <span class="np">初めてのご来店は、</span><span class="np">誰でも少し緊張するものです。</span><span class="np">だからAO& アオトでは、</span><span class="np">施術の前の対話に</span><span class="np">時間をかけます。</span><span class="np">今の髪の悩みや、</span><span class="np">普段の手入れの習慣を伺い、</span><span class="np">その方に無理のない形を</span><span class="np">一緒に探します。</span><span class="np">帰り道だけでなく、</span><span class="np">次にご来店いただくまでの毎日が</span><span class="np">心地よくあるように。</span>
+              <span class="np">同じ長さでも、</span><span class="np">くせの出方も乾かす時間も</span><span class="np">人によって違います。</span><span class="np">だからまず、</span><span class="np">いまの髪の状態と、</span><span class="np">朝どのくらい手をかけられるかを</span><span class="np">うかがいます。</span><span class="np">そのうえで、</span><span class="np">切る幅や色みをご相談します。</span><span class="np">仕上がりだけでなく、</span><span class="np">次に伸びてきたときのことまで</span><span class="np">考えて決めていきます。</span>
             </p>
           </div>
           <div class="concept__ph ph wipe fade-up"><img src="https://images.unsplash.com/photo-1712213396688-c6f2d536671f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8M3x8aGFpciUyMHNhbG9uJTIwaGFuZHMlMjBjbG9zZXVwfGVufDF8MHx8fDE3ODY3NDIwNjB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="施術風景" loading="lazy" decoding="async"></div>
@@ -589,7 +611,7 @@
         <span class="num" aria-hidden="true">04</span>
         <p class="sec__no">No.04</p>
         <h2 class="sec__en">NAILIST</h2>
-        <p class="sec__jp">スタッフ紹介</p>
+        <p class="sec__jp">ご来店から仕上げまで</p>
       </div>
       <div class="rail fade-up" aria-hidden="true">
         <span class="rail__en">NAILIST</span><span class="rail__line"></span>
@@ -598,15 +620,15 @@
         <div class="people">
           <div class="person fade-up">
             <div class="ph wipe"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8Mnx8aGFpciUyMHNhbG9uJTIwcG9ydHJhaXR8ZW58MXwxfHx8MTc4Njc0MjA2M3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="人" loading="lazy" decoding="async"></div>
-            <p class="person__name">—</p>
-            <p class="person__en">Stylist</p>
-            <p class="person__note"><span class="np">なりたい雰囲気を、</span><span class="np">言葉にできなくても大丈夫。</span><span class="np">スタイル写真を見ながら</span><span class="np">一緒に</span><span class="np">考えましょう。</span></p>
+            <p class="person__name">カウンセリング</p>
+            <p class="person__en">COUNSELING</p>
+            <p class="person__note"><span class="np">スタイル写真を</span><span class="np">見ながら、</span><span class="np">なりたい形と、</span><span class="np">いまの髪の状態を</span><span class="np">うかがいます。</span></p>
           </div>
           <div class="person fade-up">
             <div class="ph wipe wipe-d1"><img src="https://images.unsplash.com/photo-1554519934-e32b1629d9ee?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8M3x8aGFpciUyMHNhbG9uJTIwcG9ydHJhaXR8ZW58MXwxfHx8MTc4Njc0MjA2M3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="人" loading="lazy" decoding="async"></div>
-            <p class="person__name">—</p>
-            <p class="person__en">Stylist</p>
-            <p class="person__note"><span class="np">シャンプー台では</span><span class="np">どうぞ目を閉じて、</span><span class="np">ご自分の時間を。</span><span class="np">力加減も遠慮なく</span><span class="np">お声がけください。</span></p>
+            <p class="person__name">仕上げとお手入れ</p>
+            <p class="person__en">STYLING & CARE</p>
+            <p class="person__note"><span class="np">整えたあとは、</span><span class="np">ご自宅での</span><span class="np">乾かし方や、</span><span class="np">次にお越しいただく目安も</span><span class="np">お伝えします。</span></p>
           </div>
         </div>
       </div>
@@ -620,7 +642,7 @@
         <span class="num" aria-hidden="true">05</span>
         <p class="sec__no">No.05</p>
         <h2 class="sec__en">ACCESS</h2>
-        <p class="sec__jp">ご予約とアクセス</p>
+        <p class="sec__jp">ご予約・アクセス</p>
       </div>
       <div class="rail fade-up" aria-hidden="true">
         <span class="rail__en">ACCESS</span><span class="rail__line"></span>
@@ -632,7 +654,7 @@
             <div><dt>電話</dt><dd>03-4400-7163</dd></div>
             <div><dt>営業時間</dt><dd>9:00〜19:00</dd></div>
             <div><dt>定休日</dt><dd>火曜定休</dd></div>
-            <div><dt>席数</dt><dd>席数 ─ ／ ご予約はお電話・メールで</dd></div>
+            <div><dt>席数</dt><dd>ご予約はお電話またはメールで</dd></div>
             <div><dt>アクセス</dt><dd>—</dd></div>
           </dl>
           <div class="ph fade-up"><img src="https://images.unsplash.com/photo-1571974448718-ac26a9af7d8b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8MXx8aGFpciUyMHNhbG9uJTIwc3RvcmVmcm9udCUyMGV4dGVyaW9yfGVufDF8MHx8fDE3ODY3NTA3OTZ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="外観" loading="lazy" decoding="async"></div>
@@ -646,11 +668,11 @@
     <div class="fade-up">
       <p class="reserve__en">RESERVATION</p>
       <p class="reserve__jp">
-        <span class="np">ご予約は、</span><span class="np">お電話かメールでどうぞ。</span>
+        <span class="np">まずはお電話で、</span><span class="np">ご希望の日時をどうぞ。</span>
       </p>
       <a class="btn" href="#contact" aria-label="WEBで予約する">WEB予約<span class="plus"></span></a>
       <p class="reserve__sub">
-        <span class="np">営業時間は9時から19時、</span><span class="np">定休日は毎週火曜日です。</span><span class="np">ご予約はお電話またはメールで承ります。</span><span class="np">施術中はお電話に出られない場合があります。</span><span class="np">店舗は東京都杉並区荻窪。詳しい道順はお問い合わせください。</span>
+        <span class="np">ご予約とお問い合わせはお電話またはメールで。</span><span class="np">営業時間は9時から19時まで。</span><span class="np">火曜日は定休日です。</span><span class="np">所在地は東京都杉並区荻窪。</span><span class="np">詳しい道順は、ご予約の際にお伝えします。</span>
       </p>
     </div>
   </section>
@@ -660,7 +682,7 @@
 
 
 <footer>
-  <span class="brand">AO& Aoto</span>
+  <span class="brand">AO&</span>
   <p>
     東京都杉並区荻窪４丁目２０−１ 102<br>03-4400-7163 9:00〜19:00
   </p>
@@ -699,5 +721,44 @@
   <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_ok','1')" style="margin-left:16px;background:#3498db;color:#fff;border:none;padding:6px 16px;cursor:pointer;border-radius:4px;">同意する</button>
 </div>
 <script>if(!localStorage.getItem('cookie_ok'))document.getElementById('cookie-banner').style.display='block';</script>
+<script data-vbar-offset>
+(function(){
+  var bar = document.querySelector('nav.vbar');
+  if (!bar) return;
+  var pinned = [];
+  var scan = function(){
+    pinned = [];
+    var all = document.body.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (el === bar || bar.contains(el)) continue;
+      var cs = getComputedStyle(el);
+      if (cs.position !== 'fixed') continue;
+      /* 元の top は一度だけ測って覚える。再スキャンで**自分が書いた値**を
+         読むと「top が 60 を超えたから対象外」と判定してしまい、
+         下げたきり追随が止まる（2026-08-15 実測） */
+      var top = el.__vbarTop;
+      if (top === undefined) {
+        top = parseFloat(cs.top);
+        if (isNaN(top) || top > 60) continue;
+        el.__vbarTop = top;
+      }
+      if (el.getBoundingClientRect().height >= innerHeight * 0.9) continue;
+      pinned.push({el: el, top: top});
+    }
+  };
+  var sync = function(){
+    var d = Math.max(0, bar.getBoundingClientRect().bottom);
+    for (var i = 0; i < pinned.length; i++) {
+      pinned[i].el.style.top = (pinned[i].top + d) + 'px';
+    }
+  };
+  var refresh = function(){ scan(); sync(); };
+  addEventListener('scroll', sync, {passive: true});
+  addEventListener('resize', refresh);
+  addEventListener('load', refresh);
+  refresh();
+})();
+</script>
 </body>
 </html>
