@@ -228,20 +228,38 @@
 <link rel="canonical" href="./">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "AO& アオト", "address": {"@type": "PostalAddress", "streetAddress": "日本、〒167-0051 東京都杉並区荻窪４丁目２０−１ 102"}, "telephone": "03-4400-7163"}</script>
 <style>
-.vbar{position:relative;z-index:10000;background:#1c1c1c;color:#fff;
-  padding:12px 0;font-size:13px;line-height:1.7;font-family:sans-serif}
-.vbar .wrap{max-width:1080px;margin:0 auto;padding:0 20px;
-  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
-.vbar__note{opacity:.75;flex:1 1 260px;min-width:0}
-.vbar__list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.vbar__link{display:inline-block;color:#fff;text-decoration:none;
-  padding:6px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
-.vbar__link[aria-current]{background:#fff;color:#1c1c1c;font-weight:700;box-shadow:none}
+nav.vbar{position:relative !important;z-index:10000 !important;display:block !important;
+  background:#1c1c1c !important;color:#fff !important;margin:0 !important;
+  padding:12px 0 !important;font-size:13px !important;line-height:1.7 !important;
+  font-family:sans-serif !important;max-width:none !important;
+  opacity:1 !important;visibility:visible !important;transform:none !important}
+nav.vbar .vbar__inner{max-width:1080px !important;margin:0 auto !important;
+  padding:0 20px !important;display:flex !important;flex-wrap:wrap !important;
+  gap:10px 18px !important;align-items:center !important;width:auto !important}
+nav.vbar .vbar__note{opacity:.75 !important;flex:1 1 260px !important;
+  min-width:0 !important;color:#fff !important}
+nav.vbar .vbar__list{display:flex !important;flex-wrap:wrap !important;gap:8px !important;
+  list-style:none !important;margin:0 !important;padding:0 !important}
+nav.vbar .vbar__list li{display:block !important;margin:0 !important;padding:0 !important;
+  list-style:none !important;width:auto !important}
+nav.vbar .vbar__link{display:inline-block !important;color:#fff !important;
+  text-decoration:none !important;padding:6px 14px !important;font-size:13px !important;
+  border-radius:999px !important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4) !important;
+  background:transparent !important;opacity:1 !important;visibility:visible !important;
+  transform:none !important;letter-spacing:normal !important}
+nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !important;
+  font-weight:700 !important;box-shadow:none !important}
+@media (max-width:520px){
+  nav.vbar{padding:8px 0 !important;font-size:12px !important;line-height:1.5 !important}
+  nav.vbar .vbar__inner{padding:0 14px !important;gap:8px 10px !important}
+  nav.vbar .vbar__link{padding:5px 10px !important;font-size:12px !important}
+}
 #contact{padding:72px 20px}
 #contact .narrow{max-width:560px;margin:0 auto}
 #contact .cta h2{font-size:24px;margin:0 0 12px}
 #contact .cta__body{margin:0 0 24px;line-height:1.9}
 #contact .cta__actions{margin:0 0 28px}
+#contact .hero__actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 #contact .form{display:grid;gap:18px;text-align:left}
 #contact .field{display:grid;gap:8px}
 #contact .field label{font-size:14px;font-weight:700}
@@ -256,6 +274,10 @@
 #contact .ic{flex:none}
 #contact .form__note{font-size:12px;opacity:.7;margin:0}
 #contact .form__done{display:none}
+/* 値の入らなかった任意欄は行ごと畳む（テンプレの「無ければ行ごと削る」の実装。
+   :has() 非対応のブラウザでは従来どおり空欄が残るだけで、悪化はしない） */
+dd:empty{display:none !important}
+div:has(> dd:empty){display:none !important}
 #privacy-policy{padding:56px 20px;font-size:13px;line-height:2}
 #privacy-policy .narrow{max-width:720px;margin:0 auto}
 #privacy-policy h2{font-size:18px;margin:0 0 16px}
@@ -304,10 +326,10 @@
       <div class="split__text fade-up">
         <p class="eyebrow">ABOUT</p>
         <h2>
-          髪がかわると、<br>空の青さに気づく。
+          髪をととのえる、<br>しずかな時間。
         </h2>
         <p class="lead">
-          AO& アオトは、東京都杉並区荻窪にある美容院です。流行を追いかけるよりも、その人の骨格や髪質、毎日の暮らしに寄り添うことを大切にしています。朝のスタイリングが少し楽になる、鏡を見る時間が少し好きになる。そんな小さな変化を、丁寧なカウンセリングとはさみの仕事で積み重ねていきます。
+          AO& アオトは、東京都杉並区荻窪の美容院です。カット、カラーをはじめ、髪の状態やふだんの過ごし方をうかがいながら、ご自宅でも扱いやすい形を一緒に考えます。仕上がりの好みは人それぞれ。会話の量も、過ごし方も、その日のご気分に合わせてお選びいただけます。
         </p>
         <a class="more" href="#salon">VIEW MORE</a>
       </div>
@@ -324,10 +346,10 @@
       <div class="split__text fade-up">
         <p class="eyebrow">SALON</p>
         <h2>
-          ドアを開けた瞬間、<br>時間がゆるやかになる。
+          席につくところから、<br>はじまる時間。
         </h2>
         <p class="lead">
-          せわしない毎日から少し離れて、髪と向き合うための時間。カウンセリングでは、なりたいイメージだけでなく、普段のお手入れの悩みまでゆっくり伺います。シャンプーの温かさ、はさみの音、鏡の中で少しずつ変わっていく自分。帰り道の足取りが少し軽くなる、そんなひとときをお過ごしください。
+          ご来店から仕上げまで、急かさずに進めます。今日はどこまで切るか、色をどうするか。気になる雰囲気の写真があれば、鏡の前で見せていただきながら決めていきます。施術中の会話も、静かに過ごすことも、どちらでもかまいません。仕上げには、ご自宅での乾かし方もお伝えします。
         </p>
       </div>
       <div class="split__duo">
@@ -349,7 +371,7 @@
         <li><span class="nm">トリートメント</span><span class="dots"></span><span class="pr">—</span></li>
       </ul>
       <p class="menu-note">
-        料金は税込です。所要時間は髪の長さや状態により異なります。詳しくはお電話またはメールでお気軽にお問い合わせください。
+        メニューの内容や料金、所要時間は、髪の長さや状態によって異なります。詳しくは、お電話またはメールでお問い合わせください。ご予約も同じ窓口で承ります。
       </p>
     </div>
   </section>
@@ -358,9 +380,9 @@
   <section class="oneday">
     <div class="oneday__circle fade-up">
       <p class="eyebrow">ONE DAY</p>
-      <h2>とある一日</h2>
+      <h2>朝から、夕方まで</h2>
       <p>
-        朝9時、店の前を掃き、鏡を磨いて一日が始まります。午前はカットの音、午後はカラーの待ち時間に流れる静かな音楽。日が傾くころ、仕上がった髪を揺らして帰るお客さまを見送り、夜7時、明日の準備をして灯りを落とします。
+        朝九時、扉を開けて一日がはじまります。仕事帰りに立ち寄る方、休日の午前にゆっくり来られる方。夕方七時まで、荻窪の一日と同じ速さで時間が流れます。火曜日は定休日、そのほかの曜日はお待ちしています。
       </p>
     </div>
     <div class="oneday__bg ph"><img src="https://images.unsplash.com/photo-1780802371269-a3ac0daa0eb5?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8N3x8aGFpciUyMHNhbG9uJTIwc3RvcmVmcm9udCUyMGV4dGVyaW9yfGVufDF8MHx8fDE3ODY3NTA3OTZ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="外観 or 店内の引き" loading="lazy" decoding="async"></div>
@@ -436,5 +458,44 @@
   <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_ok','1')" style="margin-left:16px;background:#3498db;color:#fff;border:none;padding:6px 16px;cursor:pointer;border-radius:4px;">同意する</button>
 </div>
 <script>if(!localStorage.getItem('cookie_ok'))document.getElementById('cookie-banner').style.display='block';</script>
+<script data-vbar-offset>
+(function(){
+  var bar = document.querySelector('nav.vbar');
+  if (!bar) return;
+  var pinned = [];
+  var scan = function(){
+    pinned = [];
+    var all = document.body.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (el === bar || bar.contains(el)) continue;
+      var cs = getComputedStyle(el);
+      if (cs.position !== 'fixed') continue;
+      /* 元の top は一度だけ測って覚える。再スキャンで**自分が書いた値**を
+         読むと「top が 60 を超えたから対象外」と判定してしまい、
+         下げたきり追随が止まる（2026-08-15 実測） */
+      var top = el.__vbarTop;
+      if (top === undefined) {
+        top = parseFloat(cs.top);
+        if (isNaN(top) || top > 60) continue;
+        el.__vbarTop = top;
+      }
+      if (el.getBoundingClientRect().height >= innerHeight * 0.9) continue;
+      pinned.push({el: el, top: top});
+    }
+  };
+  var sync = function(){
+    var d = Math.max(0, bar.getBoundingClientRect().bottom);
+    for (var i = 0; i < pinned.length; i++) {
+      pinned[i].el.style.top = (pinned[i].top + d) + 'px';
+    }
+  };
+  var refresh = function(){ scan(); sync(); };
+  addEventListener('scroll', sync, {passive: true});
+  addEventListener('resize', refresh);
+  addEventListener('load', refresh);
+  refresh();
+})();
+</script>
 </body>
 </html>
